@@ -1,6 +1,0 @@
-Polandball = {
-	name = Polandball
-	sets = {
-		Polandball
-	}
-}
