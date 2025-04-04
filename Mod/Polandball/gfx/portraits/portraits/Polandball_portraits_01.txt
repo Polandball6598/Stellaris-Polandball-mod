@@ -1,0 +1,235 @@
+portraits = {
+	Polandball_male_01 = { texturefile = "gfx/models/portraits/Polandball/Polandball_male_01.dds" }
+	Polandball_male_02 = { texturefile = "gfx/models/portraits/Polandball/Polandball_male_02.dds" }
+	Polandball_male_03 = { texturefile = "gfx/models/portraits/Polandball/Polandball_male_03.dds" }
+	Polandball_male_04 = { texturefile = "gfx/models/portraits/Polandball/Polandball_male_04.dds" }
+	Polandball_male_05 = { texturefile = "gfx/models/portraits/Polandball/Polandball_male_05.dds" }
+	Polandball_male_06 = { texturefile = "gfx/models/portraits/Polandball/Polandball_male_06.dds" }
+	Polandball_male_07 = { texturefile = "gfx/models/portraits/Polandball/Polandball_male_07.dds" }
+	Polandball_male_08 = { texturefile = "gfx/models/portraits/Polandball/Polandball_male_08.dds" }
+	Polandball_male_09 = { texturefile = "gfx/models/portraits/Polandball/Polandball_male_09.dds" }
+	Polandball_female_01 = { texturefile = "gfx/models/portraits/Polandball/Polandball_female_01.dds" }
+	Polandball_female_02 = { texturefile = "gfx/models/portraits/Polandball/Polandball_female_02.dds" }
+	Polandball_female_03 = { texturefile = "gfx/models/portraits/Polandball/Polandball_female_03.dds" }
+	Polandball_female_04 = { texturefile = "gfx/models/portraits/Polandball/Polandball_female_04.dds" }
+	Polandball_female_05 = { texturefile = "gfx/models/portraits/Polandball/Polandball_female_05.dds" }
+	Polandball_female_06 = { texturefile = "gfx/models/portraits/Polandball/Polandball_female_06.dds" }
+	Polandball_female_07 = { texturefile = "gfx/models/portraits/Polandball/Polandball_female_07.dds" }
+	Polandball_female_08 = { texturefile = "gfx/models/portraits/Polandball/Polandball_female_08.dds" }
+	Polandball_female_09 = { texturefile = "gfx/models/portraits/Polandball/Polandball_female_09.dds" }
+}
+
+
+portrait_groups = {
+	"Polandball" = {
+		default = Polandball_male_01
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = {
+						OR = {
+							gender = male
+							gender = indeterminable
+						}
+					}
+				}
+				portraits = {
+					Polandball_male_01
+					Polandball_male_02
+					Polandball_male_03
+					Polandball_male_04
+					Polandball_male_05
+					Polandball_male_06
+					Polandball_male_07
+					Polandball_male_08
+					Polandball_male_09
+				}
+			}
+			add = {
+				trigger = {
+					ruler = {
+						OR = {
+							gender = female
+							gender = indeterminable
+						}
+					}
+				}
+				portraits = {
+					Polandball_female_01
+					Polandball_female_02
+					Polandball_female_03
+					Polandball_female_04
+					Polandball_female_05
+					Polandball_female_06
+					Polandball_female_07
+					Polandball_female_08
+					Polandball_female_09
+				}
+			}
+			#set = {
+			#	trigger = { ... }
+			#	portraits = { ... }
+			#	#using "set =" instead of "add" will first clear any portraits already added
+			#}
+		}
+
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				trigger = {
+					exists = species
+					NOT = { species = { species_gender = male } }
+				}
+				portraits = {
+					Polandball_female_01
+					Polandball_female_02
+					Polandball_female_03
+					Polandball_female_04
+					Polandball_female_05
+					Polandball_female_06
+					Polandball_female_07
+					Polandball_female_08
+					Polandball_female_09
+				}
+			}
+			add = {
+				trigger = {
+					exists = species
+					NOT = { species = { species_gender = female } }
+				}
+				portraits = {
+					Polandball_male_01
+					Polandball_male_02
+					Polandball_male_03
+					Polandball_male_04
+					Polandball_male_05
+					Polandball_male_06
+					Polandball_male_07
+					Polandball_male_08
+					Polandball_male_09
+				}
+			}
+		}
+
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				trigger = {
+					NOT = { species = { species_gender = male } }
+				}
+				portraits = {
+					Polandball_female_01
+					Polandball_female_02
+					Polandball_female_03
+					Polandball_female_04
+					Polandball_female_05
+					Polandball_female_06
+					Polandball_female_07
+					Polandball_female_08
+					Polandball_female_09
+				}
+			}
+			add = {
+				trigger = {
+					NOT = { species = { species_gender = female } }
+				}
+				portraits = {
+					Polandball_male_01
+					Polandball_male_02
+					Polandball_male_03
+					Polandball_male_04
+					Polandball_male_05
+					Polandball_male_06
+					Polandball_male_07
+					Polandball_male_08
+					Polandball_male_09
+				}
+			}
+		}
+
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					OR = {
+						gender = female
+						gender = indeterminable
+					}
+				}
+				portraits = {
+					Polandball_female_01
+					Polandball_female_02
+					Polandball_female_03
+					Polandball_female_04
+					Polandball_female_05
+					Polandball_female_06
+					Polandball_female_07
+					Polandball_female_08
+					Polandball_female_09
+				}
+			}
+			add = {
+				trigger = {
+					OR = {
+						gender = male
+						gender = indeterminable
+					}
+				}
+				portraits = {
+					Polandball_male_01
+					Polandball_male_02
+					Polandball_male_03
+					Polandball_male_04
+					Polandball_male_05
+					Polandball_male_06
+					Polandball_male_07
+					Polandball_male_08
+					Polandball_male_09
+				}
+			}
+		}
+
+
+		#leader scope
+		ruler = {
+			add = {
+				trigger = {
+					OR = {
+						gender = female
+						gender = indeterminable
+					}
+				}
+				portraits = {
+					Polandball_female_01
+					Polandball_female_02
+					Polandball_female_03
+					Polandball_female_04
+					Polandball_female_05
+					Polandball_female_06
+					Polandball_female_07
+					Polandball_female_08
+					Polandball_female_09
+				}
+			}
+			add = {
+				trigger = {
+					OR = {
+						gender = male
+						gender = indeterminable
+					}
+				}
+				portraits = {
+					Polandball_male_01
+					Polandball_male_02
+					Polandball_male_03
+					Polandball_male_04
+					Polandball_male_05
+					Polandball_male_06
+					Polandball_male_07
+					Polandball_male_08
+					Polandball_male_09
+				}
+			}
+		}
+	}
+}

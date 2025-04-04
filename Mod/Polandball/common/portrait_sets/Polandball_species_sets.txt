@@ -1,0 +1,4 @@
+Polandball = {
+	species_class = HUM
+	portraits = { Polandball }
+}
